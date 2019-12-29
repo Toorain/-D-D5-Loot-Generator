@@ -10,3 +10,10 @@ ion-col p {
 ion-col img {
     max-width: 55px;
 }
+
+ion-chip {
+    display: block;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}

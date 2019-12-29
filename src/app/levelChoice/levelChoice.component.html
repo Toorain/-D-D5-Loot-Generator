@@ -31,6 +31,12 @@
             </ion-item>
           </ion-col>
         </ion-row>
+        <div *ngIf="errorMessage === '';else alertMessage"></div>
+        <ng-template #alertMessage>
+          <ion-chip color="danger">
+            <ion-label color="dark">{{ errorMessage }}</ion-label>
+          </ion-chip>
+        </ng-template>        
         <ion-button expand="block" (click)="rollLevel()">Encounter Loot</ion-button>
       </ion-radio-group>
     </ion-list>

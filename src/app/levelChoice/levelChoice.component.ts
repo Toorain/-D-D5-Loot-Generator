@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-levelChoice",
-  templateUrl: "./levelChoice.component.html",
-  styleUrls: ["./levelChoice.component.css"]
+  selector: 'app-levelChoice',
+  templateUrl: './levelChoice.component.html',
+  styleUrls: ['./levelChoice.component.css']
 })
 export class LevelChoiceComponent implements OnInit {
   toFourIsChecked: boolean = false;
@@ -19,6 +19,8 @@ export class LevelChoiceComponent implements OnInit {
 
   moneyValue: number = 0;
 
+  errorMessage: string = '';
+
   constructor() {}
 
   ngOnInit() {}
@@ -28,30 +30,31 @@ export class LevelChoiceComponent implements OnInit {
       this.toTenIsChecked = false;
       this.toSixteenIsChecked = false;
       this.toMoreIsChecked = false;
-      return this.toFourIsChecked = event.detail.checked;
+      return (this.toFourIsChecked = event.detail.checked);
     } else if (event.detail.value === 'toTenIsChecked') {
       this.toFourIsChecked = false;
       this.toSixteenIsChecked = false;
       this.toMoreIsChecked = false;
-      return this.toTenIsChecked = event.detail.checked;
+      return (this.toTenIsChecked = event.detail.checked);
     } else if (event.detail.value === 'toSixteenIsChecked') {
       this.toFourIsChecked = false;
       this.toTenIsChecked = false;
       this.toMoreIsChecked = false;
-      return this.toSixteenIsChecked = event.detail.checked;
+      return (this.toSixteenIsChecked = event.detail.checked);
     } else if (event.detail.value === 'toMoreIsChecked') {
       this.toFourIsChecked = false;
       this.toTenIsChecked = false;
       this.toSixteenIsChecked = false;
-      return this.toMoreIsChecked = event.detail.checked;
+      return (this.toMoreIsChecked = event.detail.checked);
     }
   }
 
   rollLevel() {
-    let random: number = Math.floor(Math.random() * 100 + 1);
+    let random: number = 25;
+    // Math.floor((Math.random() * 100) + 1)
 
     // This will reset the amount of money between two rolls
-    
+
     this.copperPiece = 0;
     this.silverPiece = 0;
     this.electrumPiece = 0;
@@ -59,73 +62,82 @@ export class LevelChoiceComponent implements OnInit {
     this.platinumPiece = 0;
 
     // We check the level and roll according to the mobs levels
-
-    if (this.toFourIsChecked) {
-      this.moneyValue = this.toFourRoll(random);
-    } else if (this.toTenIsChecked) {
-      this.moneyValue = this.toTenRoll(random);
-    } else if (this.toSixteenIsChecked) {
-      this.moneyValue = this.toSixteenRoll(random);
-    } else if (this.toMoreIsChecked) {
-      this.moneyValue = this.toMoreRoll(random);
+    if (
+      this.toFourIsChecked === false &&
+      this.toTenIsChecked === false &&
+      this.toSixteenIsChecked === false &&
+      this.toMoreIsChecked === false
+    ) {
+      return (this.errorMessage = 'Please select a level');
+    } else {
+      if (this.toFourIsChecked) {
+        this.moneyValue = this.toFourRoll(random);
+      } else if (this.toTenIsChecked) {
+        this.moneyValue = this.toTenRoll(random);
+      } else if (this.toSixteenIsChecked) {
+        this.moneyValue = this.toSixteenRoll(random);
+      } else if (this.toMoreIsChecked) {
+        this.moneyValue = this.toMoreRoll(random);
+      }
+      this.errorMessage = '';
     }
   }
 
   toFourRoll(random) {
     let d6total: number = 0;
     if (random > 0 && random <= 30) {
-      for (let i = 0; i <= 5; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 5; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
-      return this.copperPiece = d6total ;
+      return (this.copperPiece = d6total);
     } else if (random > 30 && random <= 60) {
-      for (let i = 0; i <= 4; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 4; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
-      return this.silverPiece = d6total;
+      return (this.silverPiece = d6total);
     } else if (random > 60 && random <= 70) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
-      return this.electrumPiece = d6total;
+      return (this.electrumPiece = d6total);
     } else if (random > 70 && random <= 95) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
-      return this.goldPiece = d6total;
+      return (this.goldPiece = d6total);
     } else if (random > 95 && random <= 100) {
-      for (let i = 0; i <= 1; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 1; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
-      return this.platinumPiece = d6total;
+      return (this.platinumPiece = d6total);
     }
   }
 
   toTenRoll(random) {
     let d6total: number = 0;
     if (random > 0 && random <= 30) {
-      for (let i = 0; i <= 5; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 5; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 30 && random <= 60) {
-      for (let i = 0; i <= 4; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 4; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 60 && random <= 70) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 70 && random <= 95) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 95 && random <= 100) {
-      for (let i = 0; i <= 1; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 1; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total * 100;
     }
@@ -134,28 +146,28 @@ export class LevelChoiceComponent implements OnInit {
   toSixteenRoll(random) {
     let d6total: number = 0;
     if (random > 0 && random <= 30) {
-      for (let i = 0; i <= 5; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 5; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 30 && random <= 60) {
-      for (let i = 0; i <= 4; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 4; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 60 && random <= 70) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 70 && random <= 95) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 95 && random <= 100) {
-      for (let i = 0; i <= 1; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 1; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     }
@@ -164,28 +176,28 @@ export class LevelChoiceComponent implements OnInit {
   toMoreRoll(random) {
     let d6total: number = 0;
     if (random > 0 && random <= 30) {
-      for (let i = 0; i <= 5; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 5; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 30 && random <= 60) {
-      for (let i = 0; i <= 4; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 4; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 60 && random <= 70) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 70 && random <= 95) {
-      for (let i = 0; i <= 3; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 3; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     } else if (random > 95 && random <= 100) {
-      for (let i = 0; i <= 1; i++) {
-        d6total += Math.floor(Math.random() * 6 + 1);
+      for (let i = 1; i <= 1; i++) {
+        d6total += Math.floor((Math.random() * 6) + 1);
       }
       return d6total;
     }
