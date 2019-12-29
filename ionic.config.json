@@ -1,0 +1,7 @@
+{
+  "name": "DiceRoller",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

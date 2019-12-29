@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-title>Welcome to Loot Roller</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Switch between Individual (Trash mobs) and Hoard (Big packs or Boss) loot</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-item>
+      <ion-label class="center">{{ individual }}</ion-label>
+      <ion-toggle [checked]='isToggled' (ionChange)='toggle()'></ion-toggle>
+      <ion-label class="center">{{ hoard }}</ion-label>
+    </ion-item>
+    <app-levelChoice></app-levelChoice>
+</ion-content>

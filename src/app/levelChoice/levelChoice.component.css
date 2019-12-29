@@ -1,0 +1,12 @@
+ion-list {
+    margin: 0;
+    padding: 0;
+}
+
+ion-col p {
+    text-align: center;
+}
+
+ion-col img {
+    max-width: 55px;
+}
