@@ -50,10 +50,11 @@ export class LevelChoiceComponent implements OnInit {
   }
 
   rollLevel() {
-    let random: number = 25;
-    // Math.floor((Math.random() * 100) + 1)
-
-    // This will reset the amount of money between two rolls
+    let random: number = Math.floor((Math.random() * 100) + 1);
+    // 
+    /**
+     * This will reset the amount of money between two rolls
+     */
 
     this.copperPiece = 0;
     this.silverPiece = 0;
@@ -61,23 +62,26 @@ export class LevelChoiceComponent implements OnInit {
     this.goldPiece = 0;
     this.platinumPiece = 0;
 
-    // We check the level and roll according to the mobs levels
+    /**
+     * We check if any level is selected, if not we send an alert
+     * Then we check which level is selected and roll accordind to it.
+     */
     if (
-      this.toFourIsChecked === false &&
-      this.toTenIsChecked === false &&
-      this.toSixteenIsChecked === false &&
-      this.toMoreIsChecked === false
+      this.toFourIsChecked === false
+      && this.toTenIsChecked === false
+      && this.toSixteenIsChecked === false
+      && this.toMoreIsChecked === false
     ) {
       return (this.errorMessage = 'Please select a level');
     } else {
       if (this.toFourIsChecked) {
-        this.moneyValue = this.toFourRoll(random);
+        this.toFourRoll(random);
       } else if (this.toTenIsChecked) {
-        this.moneyValue = this.toTenRoll(random);
+        this.toTenRoll(random);
       } else if (this.toSixteenIsChecked) {
-        this.moneyValue = this.toSixteenRoll(random);
+        this.toSixteenRoll(random);
       } else if (this.toMoreIsChecked) {
-        this.moneyValue = this.toMoreRoll(random);
+        this.toMoreRoll(random);
       }
       this.errorMessage = '';
     }
@@ -114,92 +118,161 @@ export class LevelChoiceComponent implements OnInit {
   }
 
   toTenRoll(random) {
-    let d6total: number = 0;
+    let d6totalDieOne: number = 0;
+    let d6totalDieTwo: number = 0;
+
     if (random > 0 && random <= 30) {
-      for (let i = 1; i <= 5; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 30 && random <= 60) {
       for (let i = 1; i <= 4; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
+      d6totalDieOne = d6totalDieOne * 100;
+      this.copperPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 10;
+      this.electrumPiece = d6totalDieTwo;
+      return;
+    } else if (random > 30 && random <= 60) {
+      for (let i = 1; i <= 6; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 10;
+      this.silverPiece = d6totalDieOne;
+      for (let j = 1; j <= 2; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 10;
+      this.goldPiece = d6totalDieTwo;
+      return;
     } else if (random > 60 && random <= 70) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 70 && random <= 95) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 95 && random <= 100) {
       for (let i = 1; i <= 1; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total * 100;
+      d6totalDieOne = d6totalDieOne * 100;
+      this.electrumPiece = d6totalDieOne;
+      for (let j = 1; j <= 2; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 10;
+      this.goldPiece = d6totalDieTwo;
+      return;
+    } else if (random > 70 && random <= 95) {
+      for (let i = 1; i <= 4; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 10;
+      this.goldPiece = d6totalDieOne;
+      return;
+    } else if (random > 95 && random <= 100) {
+      for (let i = 1; i <= 2; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 10;
+      this.goldPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      this.platinumPiece = d6totalDieTwo;
+      return;
     }
   }
 
   toSixteenRoll(random) {
-    let d6total: number = 0;
-    if (random > 0 && random <= 30) {
-      for (let i = 1; i <= 5; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 30 && random <= 60) {
+    let d6totalDieOne: number = 0;
+    let d6totalDieTwo: number = 0;
+
+    if (random > 0 && random <= 20) {
       for (let i = 1; i <= 4; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
-    } else if (random > 60 && random <= 70) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+      d6totalDieOne = d6totalDieOne * 100;
+      this.silverPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
-    } else if (random > 70 && random <= 95) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 95 && random <= 100) {
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.goldPiece = d6totalDieTwo;
+      return;
+    } else if (random > 20 && random <= 35) {
       for (let i = 1; i <= 1; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
+      d6totalDieOne = d6totalDieOne * 100;
+      this.electrumPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.goldPiece = d6totalDieTwo;
+      return;
+    } else if (random > 35 && random <= 75) {
+      for (let i = 1; i <= 2; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 100;
+      this.goldPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 10;
+      this.platinumPiece = d6totalDieTwo;
+      return;
+    } else if (random > 75 && random <= 100) {
+      for (let i = 1; i <= 2; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 100;
+      this.goldPiece = d6totalDieOne;
+      for (let j = 1; j <= 2; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.platinumPiece = d6totalDieTwo;
+      return;
     }
   }
 
   toMoreRoll(random) {
-    let d6total: number = 0;
-    if (random > 0 && random <= 30) {
-      for (let i = 1; i <= 5; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+    let d6totalDieOne: number = 0;
+    let d6totalDieTwo: number = 0;
+
+    if (random > 0 && random <= 15) {
+      for (let i = 1; i <= 2; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
-    } else if (random > 30 && random <= 60) {
-      for (let i = 1; i <= 4; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+      d6totalDieOne = d6totalDieOne * 1000;
+      this.electrumPiece = d6totalDieOne;
+      for (let j = 1; j <= 8; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
-    } else if (random > 60 && random <= 70) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 70 && random <= 95) {
-      for (let i = 1; i <= 3; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
-      }
-      return d6total;
-    } else if (random > 95 && random <= 100) {
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.goldPiece = d6totalDieTwo;
+      return;
+    } else if (random > 15 && random <= 55) {
       for (let i = 1; i <= 1; i++) {
-        d6total += Math.floor((Math.random() * 6) + 1);
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
       }
-      return d6total;
+      d6totalDieOne = d6totalDieOne * 1000;
+      this.goldPiece = d6totalDieOne;
+      for (let j = 1; j <= 1; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.platinumPiece = d6totalDieTwo;
+      return;
+    } else if (random > 55 && random <= 100) {
+      for (let i = 1; i <= 1; i++) {
+        d6totalDieOne += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieOne = d6totalDieOne * 1000;
+      this.goldPiece = d6totalDieOne;
+      for (let j = 1; j <= 2; j++) {
+        d6totalDieTwo += Math.floor((Math.random() * 6) + 1);
+      }
+      d6totalDieTwo = d6totalDieTwo * 100;
+      this.platinumPiece = d6totalDieTwo;
+      return;
     }
   }
 }
