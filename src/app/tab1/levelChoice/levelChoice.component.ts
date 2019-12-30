@@ -17,13 +17,13 @@ export class LevelChoiceComponent implements OnInit {
   goldPiece: number = 0;
   platinumPiece: number = 0;
 
-  moneyValue: number = 0;
-
   errorMessage: string = '';
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   radioSelected(event) {
     if (event.detail.value === 'toFourIsChecked') {
@@ -51,7 +51,7 @@ export class LevelChoiceComponent implements OnInit {
 
   rollLevel() {
     let random: number = Math.floor((Math.random() * 100) + 1);
-    // 
+    //
     /**
      * This will reset the amount of money between two rolls
      */
@@ -61,7 +61,6 @@ export class LevelChoiceComponent implements OnInit {
     this.electrumPiece = 0;
     this.goldPiece = 0;
     this.platinumPiece = 0;
-
     /**
      * We check if any level is selected, if not we send an alert
      * Then we check which level is selected and roll accordind to it.

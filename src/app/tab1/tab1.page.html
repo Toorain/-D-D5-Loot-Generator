@@ -17,5 +17,9 @@
       <ion-toggle [checked]='isToggled' (ionChange)='toggle()'></ion-toggle>
       <ion-label class="center">{{ hoard }}</ion-label>
     </ion-item>
-    <app-levelChoice></app-levelChoice>
+    <app-levelChoice *ngIf="!isToggled;else Hoard"></app-levelChoice>
+    <ng-template #Hoard>
+      <app-levelChoiceHoard></app-levelChoiceHoard>
+    </ng-template>
+    
 </ion-content>
