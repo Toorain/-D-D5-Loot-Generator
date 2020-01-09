@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MagicItem } from '../magicItem';
+import { ArtObject } from '../artObject';
+import { Gems } from '../gems';
 
 @Component({
   selector: 'app-levelChoiceHoard',
@@ -177,5 +180,425 @@ export class LevelChoiceHoardComponent implements OnInit {
       this.platinumPiece = d6totalDieTwo;
     }
     return;
+  }
+
+  hoardLootFour(random) {
+    let gems: Gems = {nb: 0, value: 0};
+    let artObject: ArtObject = {nb: 0, value: 0};
+    let magicItem: MagicItem = {nb: 0, type: ''};
+
+    if (random > 0 && random <= 6) {
+      return;
+    } else if (random > 6 && random <= 16) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 10;
+      return;
+    } else if (random > 16 && random <= 26) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      return;
+    } else if (random > 26 && random <= 36) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      return;
+    } else if (random > 36 && random <= 44) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 10;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 44 && random <= 52) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 52 && random <= 60) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 60 && random <= 65) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 10;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 65 && random <= 70) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 70 && random <= 75) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 75 && random <= 78) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 10;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 78 && random <= 80) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 80 && random <= 85) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 85 && random <= 92) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 92 && random <= 97) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 97 && random <= 99) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'G';
+      return;
+    } else if (random === 100) {
+      for (let i = 1; i <= 2; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'G';
+      return;
+    }
+  }
+
+  hoardLootTen(random) {
+    let gems: Gems = {nb: 0, value: 0};
+    let artObject: ArtObject = {nb: 0, value: 0};
+    let magicItem: MagicItem = {nb: 0, type: ''};
+
+    if (random > 0 && random <= 4) {
+      return;
+    } else if (random > 4 && random <= 10) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      return;
+    } else if (random > 10 && random <= 16) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      return;
+    } else if (random > 16 && random <= 22) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 100;
+      return;
+    } else if (random > 22 && random <= 28) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      return;
+    } else if (random > 28 && random <= 32) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 32 && random <= 36) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 36 && random <= 40) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      gems.value = 100;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 40 && random <= 44) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 250;
+      magicItem.type = 'A';
+      return;
+    } else if (random > 44 && random <= 49) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 49 && random <= 54) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 54 && random <= 59) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 100;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 59 && random <= 63) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 250;
+      magicItem.type = 'B';
+      return;
+    } else if (random > 63 && random <= 66) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 66 && random <= 69) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 69 && random <= 72) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 100;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 72 && random <= 74) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 250;
+      magicItem.type = 'C';
+      return;
+    } else if (random > 74 && random <= 76) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      magicItem.nb = 1;
+      artObject.value = 25;
+      magicItem.type = 'D';
+      return;
+    } else if (random > 76 && random <= 78) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      magicItem.nb = 1;
+      gems.value = 50;
+      magicItem.type = 'D';
+      return;
+    } else if (random === 79) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      magicItem.nb = 1;
+      gems.value = 100;
+      magicItem.type = 'D';
+      return;
+    } else if (random === 80) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      magicItem.nb = 1;
+      artObject.value = 250;
+      magicItem.type = 'D';
+      return;
+    } else if (random > 80 && random <= 84) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 25;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 84 && random <= 88) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 50;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 88 && random <= 91) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 100;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 91 && random <= 94) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      artObject.value = 250;
+      magicItem.type = 'F';
+      return;
+    } else if (random > 94 && random <= 96) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 4) + 1);
+      }
+      gems.value = 100;
+      magicItem.type = 'G';
+      return;
+    } else if (random > 96 && random <= 98) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      for (let j = 1; j <= 1; j++) {
+        magicItem.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      artObject.value = 250;
+      magicItem.type = 'G';
+      return;
+    } else if (random === 99) {
+      for (let i = 1; i <= 3; i++) {
+        gems.nb += Math.floor((Math.random() * 6) + 1);
+      }
+      magicItem.nb = 1;
+      gems.value = 100;
+      magicItem.type = 'H';
+      return;
+    } else if (random === 100) {
+      for (let i = 1; i <= 2; i++) {
+        artObject.value += Math.floor((Math.random() * 4) + 1);
+      }
+      magicItem.nb = 1;
+      artObject.value = 250;
+      magicItem.type = 'H';
+      return;
+    }
   }
 }
