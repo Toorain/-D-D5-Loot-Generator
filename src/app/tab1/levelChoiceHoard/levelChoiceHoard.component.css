@@ -25,3 +25,25 @@ ion-chip {
     margin: auto;
     text-align: center;
 }
+
+.stuff-grid {
+    margin: auto;
+    text-align: center;
+}
+
+ion-card-title {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+ion-card-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+ion-card-header{
+    padding: 0;
+}
+ion-card {
+    margin: 0;
+}

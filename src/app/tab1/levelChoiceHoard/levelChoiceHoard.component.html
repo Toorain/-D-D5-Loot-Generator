@@ -66,3 +66,35 @@
     </ion-col>
   </ion-row>
 </ion-grid>
+<ion-card class="stuff-grid" *ngIf="isVisible; else zeroBlock">
+  <ion-row>
+    <ion-col>
+      <ion-card-header class="thing-pane"
+           (click)="onProductClicked(gemsDb['_id'])">
+        <ion-card-content class="thing-info">
+          <ion-card-title>
+            {{ gemsDb["name"] | titlecase}}
+          </ion-card-title>
+          <ion-card-subtitle>{{ gemsDb["value"]}}</ion-card-subtitle>
+          <ion-card-subtitle>{{ gemsDb["piece"] | titlecase }}</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-col>
+
+  </ion-row>
+</ion-card>
+<ng-template #zeroBlock>
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-card-header>
+          <ion-card-content class="thing-info">
+            <ion-card-title class="ion-text-center">
+              No gems
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card-header>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-template>

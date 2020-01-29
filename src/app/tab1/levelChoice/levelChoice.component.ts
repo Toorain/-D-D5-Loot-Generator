@@ -22,7 +22,7 @@ export class LevelChoiceComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    
+
   }
 
   radioSelected(event) {
@@ -50,7 +50,7 @@ export class LevelChoiceComponent implements OnInit {
   }
 
   rollLevel() {
-    let random: number = Math.floor((Math.random() * 100) + 1);
+    const random: number = Math.floor((Math.random() * 100) + 1);
     //
     /**
      * This will reset the amount of money between two rolls
