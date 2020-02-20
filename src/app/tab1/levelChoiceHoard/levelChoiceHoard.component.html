@@ -66,24 +66,63 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-<ion-card class="stuff-grid" *ngIf="isVisible; else zeroBlock">
+<ion-card class="stuff-grid" *ngIf="itemSelected === 'artItem' || itemSelected === 'gemItem' else noDB">
   <ion-row>
     <ion-col>
       <ion-card-header class="thing-pane"
            (click)="onProductClicked(gemsDb['_id'])">
-        <ion-card-content class="thing-info">
+        <ion-card-content class="thing-info" *ngIf="itemSelected === 'gemItem'; else artContent">
           <ion-card-title>
+            <ion-text><span *ngIf="gems.nb > 0">{{ gems.nb }} x </span></ion-text>
             {{ gemsDb["name"] | titlecase}}
           </ion-card-title>
-          <ion-card-subtitle>{{ gemsDb["value"]}}</ion-card-subtitle>
-          <ion-card-subtitle>{{ gemsDb["piece"] | titlecase }}</ion-card-subtitle>
+          <ion-card-subtitle>{{ gemsDb["value"]}} <span>{{ gemsDb["piece"] | titlecase }}<span *ngIf="itemSelected === 'gemItem'">s</span></span></ion-card-subtitle>
         </ion-card-content>
+        <ng-template #artContent>
+          <ion-card-content class="thing-info" *ngIf="itemSelected === 'artItem'">
+            <ion-card-title>
+              <ion-text><span>{{ artObject.nb }} x </span></ion-text>
+              {{ artDb["name"] | titlecase}}
+            </ion-card-title>
+            <ion-card-subtitle>{{ artDb["value"] | titlecase}} <span>{{ artDb["piece"] | titlecase}}<span *ngIf="itemSelected === 'artItem';">s</span></span></ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
+          </ion-card-content>
+        </ng-template>
       </ion-card-header>
     </ion-col>
+<!--    <ion-col>
+      <ion-card-header class="thing-pane"
+                       (click)="onProductClicked(artDb['_id'])">
+        <ion-card-content class="thing-info">
+          <ion-card-title>
+            {{ artDb["name"] | titlecase}}
+          </ion-card-title>
+          <ion-card-subtitle>{{ artDb["value"]}}</ion-card-subtitle>
+          <ion-card-subtitle>{{ artDb["piece"] | titlecase }}</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-col>-->
 
   </ion-row>
 </ion-card>
-<ng-template #zeroBlock>
+<ng-template #noDB>
+  <ion-card *ngIf="itemSelected !== 'none'">
+    <ion-row>
+      <ion-col>
+        <ion-card-header class="thing-pane">
+          <ion-card-content class="thing-info" id="dbCenter">
+            <ion-card-title>
+              <ion-text *ngIf="itemSelected === 'noDb'">There seems to be an issue with the database.</ion-text>
+              <ion-text *ngIf="itemSelected === 'noItem'">No gems or art objects for you this time.</ion-text>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card-header>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-template>
+
+<!--<ng-template #zeroBlock>
   <ion-card>
     <ion-row>
       <ion-col>
@@ -97,4 +136,4 @@
       </ion-col>
     </ion-row>
   </ion-card>
-</ng-template>
+</ng-template>-->

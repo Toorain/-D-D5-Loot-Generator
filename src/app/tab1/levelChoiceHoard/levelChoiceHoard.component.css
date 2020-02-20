@@ -32,7 +32,7 @@ ion-chip {
 }
 
 ion-card-title {
-    font-size: 40px;
+    font-size: 1.6em;
     font-weight: 600;
 }
 
@@ -46,4 +46,8 @@ ion-card-header{
 }
 ion-card {
     margin: 0;
+}
+
+#dbCenter {
+    text-align: center;
 }

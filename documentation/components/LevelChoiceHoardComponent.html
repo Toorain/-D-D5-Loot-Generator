@@ -1289,7 +1289,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MagicItem } from &#x27;../magicItem&#x27;;
-import { ArtObject } from &#x27;../artObject&#x27;;
+import { Art } from &#x27;../artObject&#x27;;
 import { Gems } from &#x27;../gems&#x27;;
 import { GemsDb } from &#x27;../gemsObject.model&#x27;;
 import { GemsService } from &#x27;../../services/gems.service&#x27;;
@@ -1491,7 +1491,7 @@ export class LevelChoiceHoardComponent implements OnInit {
   hoardLootFour(random) {
     this.toFourRollCoin(random);
     const gems: Gems &#x3D; {nb: 0, value: 0};
-    const artObject: ArtObject &#x3D; {nb: 0, value: 0};
+    const artObject: Art &#x3D; {nb: 0, value: 0};
     const magicItem: MagicItem &#x3D; {nb: 0, type: &#x27;&#x27;};
 
     if (random &gt; 0 &amp;&amp; random &lt;&#x3D; 6) {
@@ -1641,7 +1641,7 @@ export class LevelChoiceHoardComponent implements OnInit {
     this.toTenRollCoin(random);
 
     const gems: Gems &#x3D; {nb: 0, value: 0};
-    const artObject: ArtObject &#x3D; {nb: 0, value: 0};
+    const artObject: Art &#x3D; {nb: 0, value: 0};
     const magicItem: MagicItem &#x3D; {nb: 0, type: &#x27;&#x27;};
 
     if (random &gt; 0 &amp;&amp; random &lt;&#x3D; 4) {

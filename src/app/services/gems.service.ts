@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { GemsDb } from '../tab1/gemsObject.model';
 
 @Injectable({
@@ -10,23 +10,15 @@ export class GemsService {
 
     constructor(private http: HttpClient) {}
 
-    private gems: GemsDb[] = [
-        {
-            _id: '324sdfmoih3',
-            name: 'Mon objet',
-            color: 'A propos de mon objet',
-            value: '4900',
-            piece: 'will'
-        }
-    ];
+    private gems: GemsDb[] = [];
     public stuff$ = new Subject<GemsDb[]>();
 
-    getGems(coinNb) {
-        this.http.get('http://localhost:3000/api/gem/:' + coinNb.toString() + '').subscribe(
+    getGems(coinValue) {
+        this.http.get('http://localhost:3000/api/gem/:' + coinValue.toString() + '').subscribe(
             (gems: GemsDb[]) => {
                 if (gems) {
                     this.gems = gems;
-                    this.emitStuff();
+                    this.emitGem();
                 }
             },
             (error) => {
@@ -35,11 +27,11 @@ export class GemsService {
         );
     }
 
-    emitStuff() {
+    emitGem() {
         this.stuff$.next(this.gems);
     }
 
-    getThingById(id: string) {
+    /*getThingById(id: string) {
         return new Promise((resolve, reject) => {
             this.http.get('http://localhost:3000/api/gem/' + id).subscribe(
                 (response) => {
@@ -127,5 +119,5 @@ export class GemsService {
                 }
             );
         });
-    }
+    }*/
 }

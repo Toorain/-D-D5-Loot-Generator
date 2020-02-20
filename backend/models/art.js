@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const gemsSchema = new Schema({
+const artSchema = new Schema({
         name: String,
-        color: String,
         value: String,
         piece: String
     },
-    {collection: 'gems'});
+    {collection: 'art_objects'});
 
-
-module.exports = mongoose.model('Gems', gemsSchema);
+module.exports = mongoose.model('Art', artSchema);
